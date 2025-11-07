@@ -6,7 +6,7 @@
 
 A sophisticated **agentic AI system** that intelligently coordinates between document analysis, database queries, and real-time market data to provide comprehensive financial insights. This project demonstrates enterprise-grade agentic AI architecture suitable for production financial services applications.
 
-## 🎯 Project Overview
+## Project Overview
 
 ### What Is This Project?
 
@@ -33,7 +33,7 @@ This single query requires:
 
 Traditional systems require manual coordination across multiple tools and databases. This project demonstrates how **agentic AI** can automate this entire workflow.
 
-## 🏗️ Architecture & Design
+## Architecture & Design
 
 ### System Architecture
 
@@ -125,7 +125,7 @@ Traditional systems require manual coordination across multiple tools and databa
   - Applies appropriate masking based on field type
   - Adds notices about masked fields
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Core Technologies
 
@@ -155,7 +155,7 @@ Traditional systems require manual coordination across multiple tools and databa
 4. **Lazy Initialization**: Tools created on-demand to optimize resource usage
 5. **Error Handling**: Comprehensive error handling with graceful fallbacks
 
-## 🎓 How We Built It
+## How We Built It
 
 ### Implementation Approach
 
@@ -218,17 +218,17 @@ The system was built using a **modular, incremental approach**:
 4. **Template Method**: Common patterns in tool creation with customizable steps
 5. **Observer Pattern**: Verbose mode for debugging and monitoring
 
-## ⚖️ Trade-offs & Design Decisions
+## Trade-offs & Design Decisions
 
 ### 1. **Chunk Size vs. Context Preservation**
 
 **Decision**: 1024-character chunks with 20-character overlap
 
 **Trade-offs**:
-- ✅ **Pros**: Good balance between search precision and context preservation
-- ✅ **Pros**: Efficient embedding generation and storage
-- ❌ **Cons**: Very long answers may span multiple chunks (mitigated by overlap)
-- ❌ **Cons**: May miss context that spans chunk boundaries
+- **Pros**: Good balance between search precision and context preservation
+- **Pros**: Efficient embedding generation and storage
+- **Cons**: Very long answers may span multiple chunks (mitigated by overlap)
+- **Cons**: May miss context that spans chunk boundaries
 
 **Alternative Considered**: Larger chunks (2048) would preserve more context but reduce search precision.
 
@@ -237,12 +237,12 @@ The system was built using a **modular, incremental approach**:
 **Decision**: LLM-based routing with keyword fallback
 
 **Trade-offs**:
-- ✅ **Pros**: Handles complex, ambiguous queries intelligently
-- ✅ **Pros**: Adapts to new query patterns without code changes
-- ✅ **Pros**: Can understand intent beyond keywords
-- ❌ **Cons**: Higher latency (API call required)
-- ❌ **Cons**: Less predictable than rule-based systems
-- ❌ **Cons**: Higher cost per query
+- **Pros**: Handles complex, ambiguous queries intelligently
+- **Pros**: Adapts to new query patterns without code changes
+- **Pros**: Can understand intent beyond keywords
+- **Cons**: Higher latency (API call required)
+- **Cons**: Less predictable than rule-based systems
+- **Cons**: Higher cost per query
 
 **Alternative Considered**: Pure rule-based routing would be faster and cheaper but less flexible.
 
@@ -251,11 +251,11 @@ The system was built using a **modular, incremental approach**:
 **Decision**: Automatic PII detection and masking
 
 **Trade-offs**:
-- ✅ **Pros**: No manual intervention required
-- ✅ **Pros**: Consistent privacy protection
-- ✅ **Pros**: Reduces risk of data leaks
-- ❌ **Cons**: May mask non-sensitive fields with similar names
-- ❌ **Cons**: Pattern-based detection may have false positives
+- **Pros**: No manual intervention required
+- **Pros**: Consistent privacy protection
+- **Pros**: Reduces risk of data leaks
+- **Cons**: May mask non-sensitive fields with similar names
+- **Cons**: Pattern-based detection may have false positives
 
 **Alternative Considered**: Manual PII marking would be more precise but error-prone and labor-intensive.
 
@@ -264,11 +264,11 @@ The system was built using a **modular, incremental approach**:
 **Decision**: Support both single and multi-tool queries with synthesis
 
 **Trade-offs**:
-- ✅ **Pros**: Handles simple and complex queries seamlessly
-- ✅ **Pros**: Single-tool queries are fast (no synthesis overhead)
-- ✅ **Pros**: Multi-tool queries provide comprehensive answers
-- ❌ **Cons**: Synthesis adds latency and cost
-- ❌ **Cons**: More complex error handling
+- **Pros**: Handles simple and complex queries seamlessly
+- **Pros**: Single-tool queries are fast (no synthesis overhead)
+- **Pros**: Multi-tool queries provide comprehensive answers
+- **Cons**: Synthesis adds latency and cost
+- **Cons**: More complex error handling
 
 **Alternative Considered**: Always synthesizing would simplify code but add unnecessary overhead for simple queries.
 
@@ -277,11 +277,11 @@ The system was built using a **modular, incremental approach**:
 **Decision**: Lazy initialization (tools created on first query)
 
 **Trade-offs**:
-- ✅ **Pros**: Faster startup time
-- ✅ **Pros**: Lower memory usage if tools aren't used
-- ✅ **Pros**: Better for interactive development
-- ❌ **Cons**: First query has higher latency
-- ❌ **Cons**: Errors discovered later in workflow
+- **Pros**: Faster startup time
+- **Pros**: Lower memory usage if tools aren't used
+- **Pros**: Better for interactive development
+- **Cons**: First query has higher latency
+- **Cons**: Errors discovered later in workflow
 
 **Alternative Considered**: Eager initialization would catch errors earlier but slow startup.
 
@@ -290,10 +290,10 @@ The system was built using a **modular, incremental approach**:
 **Decision**: Two-attempt SQL generation with error context
 
 **Trade-offs**:
-- ✅ **Pros**: Handles common SQL errors automatically
-- ✅ **Pros**: Improves success rate without manual intervention
-- ❌ **Cons**: Adds latency on failures
-- ❌ **Cons**: May still fail on complex queries
+- **Pros**: Handles common SQL errors automatically
+- **Pros**: Improves success rate without manual intervention
+- **Cons**: Adds latency on failures
+- **Cons**: May still fail on complex queries
 
 **Alternative Considered**: Single attempt would be faster but less robust.
 
@@ -302,15 +302,15 @@ The system was built using a **modular, incremental approach**:
 **Decision**: Real-time API calls (no caching)
 
 **Trade-offs**:
-- ✅ **Pros**: Always current data
-- ✅ **Pros**: No stale data issues
-- ❌ **Cons**: Higher latency
-- ❌ **Cons**: API rate limits and failures
-- ❌ **Cons**: Higher cost
+- **Pros**: Always current data
+- **Pros**: No stale data issues
+- **Cons**: Higher latency
+- **Cons**: API rate limits and failures
+- **Cons**: Higher cost
 
 **Alternative Considered**: Caching would improve performance but risk stale data in financial context.
 
-## 🚀 Key Features & Capabilities
+## Key Features & Capabilities
 
 ### 1. **Intelligent Multi-Tool Coordination**
 
@@ -381,7 +381,7 @@ query = "What are Apple's main business risks according to their 10-K?"
 # Provides citations and context
 ```
 
-## 📊 System Capabilities
+## System Capabilities
 
 ### Supported Query Types
 
@@ -415,7 +415,7 @@ query = "What are Apple's main business risks according to their 10-K?"
 3. **Market Intelligence**: "Compare current GOOGL price with what our Google customers paid"
 4. **Strategic Planning**: "Analyze Tesla's supply chain risks and show customer TSLA holdings"
 
-## 🔧 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -486,7 +486,7 @@ python tests/test_agent_coordinator.py
 jupyter notebook financial_agent_walkthrough.ipynb
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 finance-agent-01/
@@ -518,7 +518,7 @@ finance-agent-01/
 │       └── financial_agent_walkthrough.ipynb  # Testing notebook
 ```
 
-## 🎯 Learning Objectives
+## Learning Objectives
 
 This project demonstrates:
 
@@ -531,7 +531,7 @@ This project demonstrates:
 7. **Error Handling**: Robust error handling with fallbacks
 8. **Modular Design**: Clean, maintainable, testable architecture
 
-## 🔒 Security & Privacy
+## Security & Privacy
 
 - **Automatic PII Detection**: Pattern-based identification of sensitive fields
 - **Intelligent Masking**: Type-specific masking strategies
@@ -539,7 +539,7 @@ This project demonstrates:
 - **No Data Storage**: Queries processed without storing user data
 - **API Key Security**: Environment variables for sensitive credentials
 
-## 🚧 Limitations & Future Enhancements
+## Limitations & Future Enhancements
 
 ### Current Limitations
 
@@ -560,22 +560,22 @@ This project demonstrates:
 7. **Advanced PII Detection**: ML-based detection beyond pattern matching
 8. **Query History**: Learning from past queries to improve routing
 
-## 📚 Additional Resources
+## Additional Resources
 
 - [LlamaIndex Documentation](https://docs.llamaindex.ai/)
 - [OpenAI API Reference](https://platform.openai.com/docs)
 - [Yahoo Finance API](https://pypi.org/project/yfinance/)
 - [SQLite Documentation](https://www.sqlite.org/docs.html)
 
-## 🤝 Contributing
+## Contributing
 
 This is an educational project demonstrating agentic AI principles. Contributions, suggestions, and improvements are welcome!
 
-## 📄 License
+## License
 
 This project is for educational purposes as part of the Udacity Building Agents course.
 
-## 👤 Author
+## Author
 
 Built as part of the Udacity Building Agents specialization, demonstrating advanced agentic AI capabilities for financial services applications.
 
