@@ -42,3 +42,5 @@ dist/
 
 # mypy
 .mypy_cache/
+*.zip
+
